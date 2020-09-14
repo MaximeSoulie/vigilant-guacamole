@@ -16,7 +16,11 @@ jobs:
 
 
   get_last_deployment_id:
-    - run: aws cloudformation \
+    docker:
+      - image: amazon/aws-cli
+    steps:
+    - run: |
+        aws cloudformation \
            list-exports --query "Exports[?Name==\`PipelineID\`].Value" \
            --no-paginate --output text
 
