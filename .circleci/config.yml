@@ -17,8 +17,8 @@ jobs:
 
   get_last_deployment_id:
     - run: aws cloudformation \
-list-exports --query "Exports[?Name==\`PipelineID\`].Value" \
---no-paginate --output text
+           list-exports --query "Exports[?Name==\`PipelineID\`].Value" \
+           --no-paginate --output text
 
   promote_to_production:
     docker:
